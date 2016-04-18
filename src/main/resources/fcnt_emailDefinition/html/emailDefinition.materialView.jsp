@@ -1,4 +1,4 @@
-<!-- Text input-->
+<!-- Email input-->
 <md-content md-theme="blue-theme"
             layout-gt-sm="row"
             layout-padding
@@ -23,14 +23,14 @@
                    ng-readonly="readOnly"
                    ff-validations
                    ff-logic>
-                <div ng-messages="form[input.name].$error" multiple>
-                    <div ng-show="form.$dirty">
-                        <div ng-message-exp="(validationName | normalize)"
-                             ng-repeat="(validationName, validation) in input.validations">
-                            {{validation.message}}
-                        </div>
+            <div ng-messages="form[input.name].$error" multiple>
+                <div ng-show="form.$dirty">
+                    <div ng-message-exp="(validationName | normalize)"
+                         ng-repeat="(validationName, validation) in input.validations">
+                        {{validation.message}}
                     </div>
                 </div>
+            </div>
         </md-input-container>
     </div>
 </md-content>
