@@ -64,7 +64,7 @@
                              layout-sm="column"
                              ng-repeat="input in vm.inputs">
                             <div flex>
-                                <ff-input ng-if="!vm.isLayoutAvailable"
+                                <ff-input
                                           input="input"
                                           resolve-logic="vm.resolveLogic(input, vm.getFormController())"
                                           resolve-placeholder="vm.resolvePlaceholder(input)"
