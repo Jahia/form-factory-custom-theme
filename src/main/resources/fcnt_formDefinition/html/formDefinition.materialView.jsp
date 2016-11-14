@@ -55,7 +55,8 @@
     <div flex>
         <form novalidate name="{{vm.formName}}"
               ng-model-options="{updateOn:'default blur', debounce: { default: 0, blur: 0 } }"
-              ng-submit="vm.preventSubmit($event)">
+              ng-submit="vm.preventSubmit($event)"
+              class="{{vm.cssClassName}}">
             <div layout="row" layout-sm="column">
                 <div flex>
                     <fieldset>
