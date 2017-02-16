@@ -27,25 +27,27 @@
      ng-if="vm.getFormController().$submitted">
     <div layout="row" layout-sm="column">
         <div flex
-            class="text-center">
+             class="text-center">
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <div layout="row"
              layout-sm="column"
              ng-if="vm.displaySubmissionText && vm.currentForm.callbackName !== null">
             <div flex>
-                <ff-callback data="vm.callbackData"
-                             callback-directive="{{vm.currentForm.callbackName}}">
+                <ff-callback ng-if="vm.runCallbacks"
+                             action-data="vm.actionData"
+                             result-data="vm.resultData"
+                             callback-directives="vm.currentForm.callbacks.callbacks"
+                             all-completed-flag="vm.displaySubmissionText"
+                             display-templates="vm.currentForm.callbacks.displayTemplates">
                 </ff-callback>
             </div>
         </div>
         <div layout="row"
              layout-sm="column"
-             ng-if="vm.displaySubmissionText && vm.currentForm.callbackName === null">
+             ng-if="vm.displaySubmissionText">
             <div flex>
-                <strong>
-                    {{vm.currentForm.afterSubmissionText}}
-                </strong>
+                <strong ng-bind-html="vm.currentForm.afterSubmissionText"></strong>
             </div>
         </div>
     </div>
