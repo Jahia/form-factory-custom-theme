@@ -15,6 +15,7 @@
                 </span>
             </label>
             <input type="text"
+                   ng-model-options="{allowInvalid:true}"
                    md-no-asterisk
                    md-placeholder="{{input.placeholder}}"
                    name="{{input.name}}"

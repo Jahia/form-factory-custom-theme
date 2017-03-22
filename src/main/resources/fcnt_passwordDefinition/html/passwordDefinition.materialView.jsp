@@ -14,7 +14,8 @@
                         </sup>
                 </span>
             </label>
-            <input type="text"
+            <input type="password"
+                   ng-model-options="{allowInvalid:true}"
                    md-no-asterisk
                    md-placeholder="{{input.placeholder}}"
                    name="{{input.name}}"
