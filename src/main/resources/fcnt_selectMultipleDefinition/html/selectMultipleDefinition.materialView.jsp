@@ -14,7 +14,7 @@
                     name="{{input.name}}"
                     ng-model="input.value"
                     ng-required="isRequired()"
-                    ng-disabled="readOnly()"
+                    ng-disabled="readOnly"
                     ff-validations
                     ff-logic>
                 <md-option ng-repeat="option in input.options" value="{{option.key}}">{{option.value}}</md-option>

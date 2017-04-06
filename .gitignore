@@ -5,6 +5,8 @@
 /.classpath
 /.project
 /.settings
+/src/main/resources/javascript/lib/*
+/src/main/resources/css/lib/*
 .idea
 *.iml
 *.ipr
