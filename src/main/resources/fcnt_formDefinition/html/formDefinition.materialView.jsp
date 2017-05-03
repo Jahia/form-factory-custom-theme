@@ -16,7 +16,8 @@
      layout-sm="column"
      ng-if="!_.isUndefined(vm.currentForm.progressBar) && vm.currentForm.progressBar.position === 'top' || vm.currentForm.progressBar.position === 'both'">
     <div flex>
-        <ff-progress-bar form="vm.currentForm"
+        <ff-progress-bar view-type="materialView"
+                         form="vm.currentForm"
                          current-step="vm.currentStep">
         </ff-progress-bar>
     </div>
@@ -133,7 +134,8 @@
      layout-sm="column"
      ng-if="!_.isUndefined(vm.currentForm.progressBar) && vm.currentForm.progressBar.position === 'bottom' || vm.currentForm.progressBar.position === 'both'">
     <div flex>
-        <ff-progress-bar form="vm.currentForm"
+        <ff-progress-bar view-type="materialView"
+                         form="vm.currentForm"
                          current-step="vm.currentStep">
         </ff-progress-bar>
     </div>
