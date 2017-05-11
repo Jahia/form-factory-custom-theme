@@ -23,37 +23,6 @@
     </div>
 </div>
 
-<div layout="row"
-     layout-sm="column"
-     ng-if="vm.getFormController().$submitted">
-    <div layout="row" layout-sm="column">
-        <div flex
-             class="text-center">
-            <i class="fa fa-spinner fa-spin fa-3x"></i>
-        </div>
-        <div layout="row"
-             layout-sm="column"
-             ng-if="vm.displaySubmissionText && vm.currentForm.callbackName !== null">
-            <div flex>
-                <ff-callback ng-if="vm.runCallbacks"
-                             action-data="vm.actionData"
-                             result-data="vm.resultData"
-                             callback-directives="vm.currentForm.callbacks.callbacks"
-                             all-completed-flag="vm.displaySubmissionText"
-                             display-templates="vm.currentForm.callbacks.displayTemplates">
-                </ff-callback>
-            </div>
-        </div>
-        <div layout="row"
-             layout-sm="column"
-             ng-if="vm.displaySubmissionText">
-            <div flex>
-                <strong ng-bind-html="vm.currentForm.afterSubmissionText"></strong>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div layout="row" layout-sm="column">
     <div flex>
         <form novalidate name="{{vm.formName}}"
@@ -64,6 +33,40 @@
                 <div flex>
                     <fieldset>
                         <legend ng-if="vm.showFormTitle">{{vm.currentForm.displayableName}}</legend>
+
+                        <!--** START ** Display after form submission **-->
+                        <div layout="row" layout-wrap layout-margin
+                             ng-if="vm.getFormController().$submitted">
+                            <div flex-auto>
+                                <div layout="row">
+                                    <div flex-auto="100"
+                                         class="text-center"
+                                         ng-if="!vm.displaySubmissionText && (!vm.runCallbacks && vm.currentForm.callbacks.displayTemplates)
+     || !vm.displaySubmissionText && (vm.runCallbacks && !vm.currentForm.callbacks.displayTemplates)
+     || !vm.displaySubmissionText && vm.currentForm.callbacks === null">
+                                        <i class="fa fa-spinner fa-spin fa-3x"></i>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex-auto="100">
+                                        <ff-callback ng-if="vm.runCallbacks"
+                                                     action-data="vm.actionData"
+                                                     result-data="vm.resultData"
+                                                     callback-directives="vm.currentForm.callbacks.callbacks"
+                                                     all-completed-flag="vm.displaySubmissionText"
+                                                     display-templates="vm.currentForm.callbacks.displayTemplates">
+                                        </ff-callback>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex-auto="100" ng-if="vm.displaySubmissionText">
+                                        <strong ng-bind-html="vm.currentForm.afterSubmissionText"></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--** END ** Display after form submission **-->
+
                         <div layout="row"
                              layout-sm="column"
                              ng-repeat="input in vm.inputs">
