@@ -16,7 +16,8 @@
                     ng-required="isRequired()"
                     ng-disabled="readOnly"
                     ff-validations
-                    ff-logic>
+                    ff-logic
+                       ff-focus-tracker="{{input.name}}">
                 <md-option ng-repeat="option in input.options" value="{{option.key}}">{{option.value}}</md-option>
             </md-select>
             <div ng-messages="form[input.name].$error" multiple>

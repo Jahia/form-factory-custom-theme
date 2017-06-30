@@ -23,7 +23,8 @@
                       ng-required="isRequired()"
                       ng-readonly="readOnly"
                       ff-validations
-                      ff-logic>
+                      ff-logic
+                      ff-focus-tracker="{{input.name}}">
                 {{input.value}}
             </textarea>
             <div ng-messages="form[input.name].$error" multiple>
