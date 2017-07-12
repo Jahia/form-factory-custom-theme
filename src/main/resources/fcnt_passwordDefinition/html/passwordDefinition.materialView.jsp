@@ -7,7 +7,7 @@
         <md-input-container>
             <label>{{input.label}}
                 <span ng-if="isRequired()"
-                      ng-show="form.$dirty">
+                      ng-show="asteriskResolver()">
                         <sup>
                             &nbsp;
                             <i class="fa fa-asterisk fa-sm"></i>
