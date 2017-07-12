@@ -18,7 +18,7 @@
                     ff-validations
                     ff-logic
                        ff-focus-tracker="{{input.name}}">
-                <md-option ng-repeat="option in input.options" value="{{option.key}}">{{option.value}}</md-option>
+                <md-option ng-repeat="option in input.options | filter: 'true' : null : visible" value="{{option.key}}">{{option.value}}</md-option>
             </md-select>
             <div ng-messages="form[input.name].$error" multiple>
                 <div ng-show="form.$dirty">
